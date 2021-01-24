@@ -2,7 +2,7 @@
 #
 # Custom Green Engineering Menu screen
 # Author:       Jille
-# Version:      3.6A
+# Version:      4.0A
 # Disclaimer:   THIS SCREEN WILL VOID YOUR WARRANTY
 #
 ####################################################################
@@ -10,17 +10,13 @@ screen   MQBCoding Main
 
 keyValue
     value    String sys 0x00000000 0
-    label    "[MQB CODING - MIB Toolbox v3.6A]"
+    label    "[MQB CODING - MIB Toolbox v4.0A]"
     poll     0
     
 keyValue
     value    String sys 0x00000000 0
     label    "Warning: this screen has the potential to break your unit and void your warranty. Be careful."
     poll     0 
-
-script
-   value    sys 1 0x0100 "/scripts/copy_phone_customer.sh"
-   label    "Get new scripts and files from SD-card (slot1) "
  
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/update_toolbox.sh"
@@ -3024,15 +3020,15 @@ script
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_lsdjxe.sh"
-   label    "Import LSD.jxe"
+   label    "Import LSD.jxe from sda0/Custom/LSD"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/privacy_shadow.sh"
-   label    "Import shadow file"
+   label    "Import shadow file from sda0/Custom/Shadowfile"
    
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/import_hosts.sh"
-   label    "Import hosts file"
+   label    "Import hosts file from sda0/Custom/Hosts"
   
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/flash_ifs.sh"
@@ -4064,7 +4060,7 @@ keyValue
         
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/install_esd.sh"
-   label    "Install green-menu screen files"   
+   label    "Install green-menu screen files from sda0/Custom/GreenMenu"   
    
 #################################################################### 
 screen Navigation Customization
@@ -4647,7 +4643,7 @@ screen  History MQBCoding
 
 keyValue
     value    String sys 0x00000000 0
-    label    "v3.6A - New install method. Bugfixes. Online stuff"
+    label    "v4.0A - Major rehaul in installation, bugfixing and dev stuff"
     poll     0
 
 keyValue
