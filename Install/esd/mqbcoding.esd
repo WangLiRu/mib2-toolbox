@@ -77,7 +77,11 @@ script
 
 script
    value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_online.sh"
-   label    "Dump Online"
+   label    "Dump online"
+   
+script
+   value    sys 1 0x0100 "/eso/bin/PhoneCustomer/default/dump_bundles.sh"
+   label    "Dump bundles"
 
 ####################################################################
 screen  Customization MQBCoding 

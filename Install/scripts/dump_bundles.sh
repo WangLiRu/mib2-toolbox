@@ -1,9 +1,8 @@
 #!/bin/sh
 
 #info
-TOPIC=Online
-DESCRIPTION="This script will dump online files"
-
+TOPIC=Bundles
+DESCRIPTION="This script will dump all files in /eso/bundles/"
 echo $DESCRIPTION
 
 
@@ -17,7 +16,7 @@ then
 fi
 
 #Mounting app folder
-echo Mounting app folder.
+echo "Mounting app folder."
 mount -uw /mnt/app
 
 #Make backup folder
@@ -32,17 +31,12 @@ sleep 1
 echo
 echo "Dumping, this can take a moment. Please be patient."
 
-# Old dump all script: cp /eso/bundles/*.* $DUMPFOLDER/
-
-cp /eso/bundles/arc.certificateswapper*.jar $DUMPFOLDER/
-cp /eso/bundles/arc.jobs.external*.jar $DUMPFOLDER/
-cp /eso/bundles/arc.update*.jar $DUMPFOLDER/
-cp /eso/bundles/service.core.registration*.jar $DUMPFOLDER/
+cp /eso/bundles/*.jar $DUMPFOLDER/
 
 # Make readonly again
 mount -ur /mnt/app
 mount -ur $VOLUME
 
-echo "Done. Online dump can be found in the Dump folder on your SD-card"
+echo "Done. Bundles dump can be found in the Dump folder on your SD-card"
 
 exit 0

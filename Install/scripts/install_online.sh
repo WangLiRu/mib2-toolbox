@@ -9,34 +9,34 @@ echo $DESCRIPTION
 . /eso/bin/PhoneCustomer/default/util_info.sh
 
 echo "Mounting SD-Card"
-DRVS="sda0 sdb0"
-for i in $DRVS ; do
-   if [[ -d /net/mmx/fs/$i ]] ; then
-    if [[ -e /net/mmx/fs/$i/online ]] ; then
-     on -f mmx mount -u /net/mmx/fs/$i
-	 on -f rcc mount -u /net/mmx/fs/$i
-     export SDCARD=/net/mmx/fs/$i
-	fi
-   fi
-done
+. /eso/bin/PhoneCustomer/default/util_mountsd.sh
+if [[ -z "$VOLUME" ]] 
+then
+	echo "No SD-card found, quitting"
+	exit 0
+fi
 
+# Make app volume writable
 echo "Mounting app folder"
-mount -u /net/mmx/mnt/app
+mount -uw /mnt/app
 
 echo "Copying and overwriting files"
-new_jar_files=`ls $SDCARD/Custom/Online | grep .jar`
+new_jar_files=`ls $VOLUME/Custom/Online | grep .jar`
 for new_jar_file in $new_jar_files
 do
 	old_jar=`ls /net/mmx/mnt/app/eso/bundles/$new_jar_file`
 	if [[ ! -z "$old_jar"  ]] ; then
-		cp -fV $SDCARD/Custom/Online/$new_jar_file $old_jar
+		cp -fV $VOLUME/Custom/Online/$new_jar_file $old_jar
 	fi
 done
 
 echo "Copying special OnlineMenu to unit"
-cp -V $SDCARD/Custom/Online/OnlineMenu.esd /net/mmx/mnt/app/eso/hmi/engdefs/OnlineMenu.esd
+cp -V $VOLUME/Custom/Online/OnlineMenu.esd /net/mmx/mnt/app/eso/hmi/engdefs/OnlineMenu.esd
+# Make readonly again
+mount -ur /mnt/app
+mount -ur $VOLUME
+
 
 echo "Done"
-sync; sync; sync;
 
 exit 0

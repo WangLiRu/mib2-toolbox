@@ -47,14 +47,14 @@ skipMetaCRC = "true"
 skipFileCopyCrc = "true"
 skipCheckVariant = "true"
 skipCheckRegion = "true"
-#FinalScript = "./common/tools/0/default/finalScript.sh"
-#FinalScriptChecksum = "e7593036d944d9aae6922925eea84766b161fded"
-#FinalScriptMaxTime = "30"
-#FinalScriptName = "Final Script"
+FinalScript = "./common/tools/0/default/finalScript.sh"
+FinalScriptChecksum = "4928fe9cd3b741104e2a85c47f4d16fc9ff16d76"
+FinalScriptMaxTime = "30"
+FinalScriptName = "Final Script"
 
-#[common\tools\0\default\dir]
-#FileSize = "812"
-#CheckSum = "b742eed10d89367bbd22a3e13e1e5e0ebf4e79b0"
+[common\tools\0\default\dir]
+FileSize = "797"
+CheckSum = "d995d9b1383b96e4e26380eb35b0af7487c4457e"
 
 [DVD]
 VendorInfo = "MQB"
@@ -63,8 +63,8 @@ DownloadGroup = "DVD"
 
 [DVD\Toolbox\0\default\File]
 CheckSumSize = "524288"
-CheckSum = "65253a5b5282347d663f7e26af26cf3889df7bfc"
-FileSize = "123825"
+CheckSum = "4276bf573bf6ca5d317dd31890ecc413bb567ae5"
+FileSize = "123941"
 Version = "00036"
 Source = "../../../../Install/esd/mqbcoding.esd"
 Destination = "/net/mmx/mnt/app/eso/hmi/engdefs/mqbcoding.esd"
